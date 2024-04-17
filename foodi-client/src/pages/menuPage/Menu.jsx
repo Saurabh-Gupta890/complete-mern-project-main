@@ -44,7 +44,7 @@ const Menu = () => {
   const showAll = () => {
     setFilteredItems(menu);
     setSelectedCategory("all");
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const handleSortChange = (option) => {
@@ -75,7 +75,7 @@ const Menu = () => {
     setCurrentPage(1);
   };
 
-//   console.log(filteredItems);
+  //   console.log(filteredItems);
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -83,25 +83,35 @@ const Menu = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-
   return (
     <div>
       {/* menu banner */}
-      <div className={`max-w-screen-2xl container mx-auto xl:px-24 px-4 bg-gradient-to-r from-0% from-[#FAFAFA] to-[#FCFCFC] to-100% ${isDarkMode ? "dark" : ""}`}>
+      <div
+        className={`max-w-screen-2xl container mx-auto xl:px-24 px-4 bg-gradient-to-r from-0% from-[#FAFAFA] to-[#FCFCFC] to-100% ${
+          isDarkMode ? "dark" : ""
+        }`}
+      >
         <div className="py-48 flex flex-col items-center justify-center">
           {/* content */}
           <div className=" text-center px-4 space-y-7">
             <h2 className="md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
               For the Love of Delicious <span className="text-green">Food</span>
             </h2>
-            <p className="text-[#4A4A4A]  text-xl md:w-4/5 mx-auto">
+            <p
+              className="text-xl md:w-4/5 mx-auto"
+              style={{ color: "#ff1493", fontWeight: "bold" }}
+            >
               Come with family & feel the joy of mouthwatering food such as
-              Greek Salad, Lasagne, Butternut Pumpkin, Tokusen Wagyu, Olivas
-              Rellenas and more for a moderate cost
+              Onion Dosa, Masala Dosa, Idli, Gobhi fried rice, and more for a
+              moderate cost
             </p>
-            <button className="bg-green font-semibold btn text-white px-8 py-3 rounded-full">
+
+            {/* <button className="bg-green font-semibold btn text-white px-8 py-3 rounded-full">
               Order Now
-            </button>
+            </button> */}
+            <a href="/menu" className="text-green text-xl">
+              Order Now
+            </a>
           </div>
         </div>
       </div>
@@ -109,8 +119,7 @@ const Menu = () => {
       {/* menu shop  */}
       <div className="section-container">
         <div className="flex flex-col md:flex-row flex-wrap md:justify-between items-center space-y-3 mb-8">
-          
-           {/* all category buttons */}
+          {/* all category buttons */}
           <div className="flex flex-row justify-start md:items-center md:gap-8 gap-4  flex-wrap">
             <button
               onClick={showAll}
@@ -118,30 +127,33 @@ const Menu = () => {
             >
               All
             </button>
+
             <button
-              onClick={() => filterItems("salad")}
-              className={selectedCategory === "salad" ? "active" : ""}
+              onClick={() => filterItems("Paneer")}
+              className={selectedCategory === "Paneer" ? "active" : ""}
             >
-              Salad
+              Paneer
             </button>
+
             <button
-              onClick={() => filterItems("pizza")}
-              className={selectedCategory === "pizza" ? "active" : ""}
+              onClick={() => filterItems("Rice")}
+              className={selectedCategory === "Rice" ? "active" : ""}
             >
-              Pizza
+             Rice
             </button>
-            <button
+            {/* <button
               onClick={() => filterItems("soup")}
               className={selectedCategory === "soup" ? "active" : ""}
             >
               Soups
-            </button>
+            </button> */}
             <button
-              onClick={() => filterItems("dessert")}
-              className={selectedCategory === "dessert" ? "active" : ""}
+              onClick={() => filterItems("Dosa")}
+              className={selectedCategory === "Dosa" ? "active" : ""}
             >
-              Desserts
+              Dosa
             </button>
+
             <button
               onClick={() => filterItems("drinks")}
               className={selectedCategory === "drinks" ? "active" : ""}
@@ -150,7 +162,7 @@ const Menu = () => {
             </button>
           </div>
 
-            {/* filter options */}
+          {/* filter options */}
           <div className="flex justify-end mb-4 rounded-sm">
             <div className="bg-black p-2 ">
               <FaFilter className="text-white h-4 w-4" />
@@ -178,9 +190,11 @@ const Menu = () => {
         </div>
       </div>
 
-       {/* Pagination */}
-       <div className="flex justify-center my-8 flex-wrap gap-2">
-        {Array.from({ length: Math.ceil(filteredItems.length / itemsPerPage) }).map((_, index) => (
+      {/* Pagination */}
+      <div className="flex justify-center my-8 flex-wrap gap-2">
+        {Array.from({
+          length: Math.ceil(filteredItems.length / itemsPerPage),
+        }).map((_, index) => (
           <button
             key={index + 1}
             onClick={() => paginate(index + 1)}

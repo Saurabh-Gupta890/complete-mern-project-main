@@ -1,14 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // Import necessary components from react-router-dom
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "./assets/vite.svg"; // Correct path for vite.svg
+import "./App.css";
+import Offer from "./Offer";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1>Vite + React</h1>
+      {/* <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -19,9 +21,20 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p>{" "}
+      */}
+
+      {/* Wrap your routes with the Router component */}
+      <Router>
+        {/* Use Switch to render only the first matching route */}
+        <Switch>
+          {/* Define your routes using Route component */}
+          <Route exact path="/" component={App}/>
+          <Route path="/offer" component={Offer} />
+        </Switch>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

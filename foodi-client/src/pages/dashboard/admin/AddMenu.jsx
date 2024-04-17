@@ -86,10 +86,10 @@ const AddMenu = () => {
                 <option disabled value="default">
                   Select a category
                 </option>
-                <option value="salad">Salad</option>
-                <option value="pizza">Pizza</option>
-                <option value="soup">Soup</option>
-                <option value="dessert">Dessert</option>
+                <option value="Paneer">Paneer</option>
+                <option value="Rice">Rice</option>
+                <option value="Dosa">Dosa</option>
+                {/* <option value="dessert">Dessert</option> */}
                 <option value="drinks">Drinks</option>
                 <option value="popular">popular</option>
               </select>
